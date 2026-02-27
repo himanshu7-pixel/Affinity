@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* Affinity — calming teal-primary, soft-purple accent, warm off-white bg */
+    --background: 0.975 0.008 220;
+    --foreground: 0.18 0.03 240;
+
+    --card: 0.99 0.004 220;
+    --card-foreground: 0.18 0.03 240;
+
+    --popover: 0.99 0.004 220;
+    --popover-foreground: 0.18 0.03 240;
+
+    /* Teal primary */
+    --primary: 0.54 0.13 192;
+    --primary-foreground: 0.99 0 0;
+
+    /* Soft purple secondary */
+    --secondary: 0.93 0.025 280;
+    --secondary-foreground: 0.42 0.14 280;
+
+    --muted: 0.95 0.012 220;
+    --muted-foreground: 0.50 0.04 240;
+
+    /* Purple accent */
+    --accent: 0.58 0.17 280;
+    --accent-foreground: 0.99 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.02 220;
+    --input: 0.91 0.015 220;
+    --ring: 0.54 0.13 192;
+
+    /* Chart colors */
+    --chart-1: 0.54 0.13 192;
+    --chart-2: 0.58 0.17 280;
+    --chart-3: 0.68 0.18 160;
+    --chart-4: 0.62 0.2 330;
+    --chart-5: 0.68 0.16 50;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.01 220;
+    --sidebar-foreground: 0.18 0.03 240;
+    --sidebar-primary: 0.54 0.13 192;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.025 280;
+    --sidebar-accent-foreground: 0.42 0.14 280;
+    --sidebar-border: 0.88 0.02 220;
+    --sidebar-ring: 0.54 0.13 192;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* ── Typing indicator animation ── */
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+.typing-dot {
+  animation: typing-bounce 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ── Pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.54 0.13 192 / 0.35); }
+  50% { box-shadow: 0 0 0 10px oklch(0.54 0.13 192 / 0); }
+}
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: oklch(0.95 0.012 220); }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.78 0.07 192);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: oklch(0.54 0.13 192); }
